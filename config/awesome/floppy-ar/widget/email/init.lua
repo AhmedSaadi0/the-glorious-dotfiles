@@ -46,15 +46,15 @@ local email_icon_widget = wibox.widget {
 }
 
 local email_from_text = wibox.widget {
-	font = 'Inter Regular 10',
-	markup = 'From:',
+	font = 'JF Flat 10',
+	markup = 'من:',
 	align = 'left',
 	valign = 'center',
 	widget = wibox.widget.textbox
 }
 
 local email_recent_from = wibox.widget {
-	font = 'Inter Regular 10',
+	font = 'JF Flat 10',
 	markup = 'loading@stdout.sh',
 	align = 'left',
 	valign = 'center',
@@ -62,15 +62,15 @@ local email_recent_from = wibox.widget {
 }
 
 local email_subject_text = wibox.widget {
-	font = 'Inter Regular 10',
-	markup = 'Subject:',
+	font = 'JF Flat 10',
+	markup = 'العنوان',
 	align = 'left',
 	valign = 'center',
 	widget = wibox.widget.textbox
 }
 
 local email_recent_subject = wibox.widget {
-	font = 'Inter Regular 10',
+	font = 'JF Flat 10',
 	markup = 'Loading data',
 	align = 'left',
 	valign = 'center',
@@ -78,16 +78,16 @@ local email_recent_subject = wibox.widget {
 }
 
 local email_date_text = wibox.widget {
-	font = 'Inter Regular 10',
-	markup = 'Local Date:',
+	font = 'JF Flat 10',
+	markup = 'التوقيت المحلي:',
 	align = 'left',
 	valign = 'center',
 	widget = wibox.widget.textbox
 }
 
 local email_recent_date = wibox.widget {
-	font = 'Inter Regular 10',
-	markup = 'Loading date...',
+	font = 'JF Flat 10',
+	markup = 'جلب البيانات...',
 	align = 'left',
 	valign = 'center',
 	widget = wibox.widget.textbox
@@ -146,7 +146,7 @@ widget = wibox.container.background
 
 local email_details_tooltip = awful.tooltip
 {
-	text = 'Loading...',
+	text = 'جاري التحميل...',
 	objects = {email_icon_widget},
 	mode = 'outside',
 	align = 'right',
@@ -167,22 +167,22 @@ from email.policy import default
 def process_mailbox(M):
 	rv, data = M.search(None, "(UNSEEN)")
 	if rv != 'OK':
-		print ("No messages found!")
+		print ("لا يوجد اي رسالة!")
 		return
 
 	for num in reversed(data[0].split()):
 		rv, data = M.fetch(num, '(BODY.PEEK[])')
 		if rv != 'OK':
-			print ("ERROR getting message", num)
+			print ("حدث خطأ اثناء جلب الرسائل", num)
 			return
 
 		msg = email.message_from_bytes(data[0][1], policy=default)
-		print ('From:', msg['From'])
-		print ('Subject: %s' % (msg['Subject']))
+		print ('من:', msg['From'])
+		print ('العنوان %s' % (msg['Subject']))
 		date_tuple = email.utils.parsedate_tz(msg['Date'])
 		if date_tuple:
 			local_date = datetime.datetime.fromtimestamp(email.utils.mktime_tz(date_tuple))
-			print ("Local Date:", local_date.strftime("%a, %H:%M:%S %b %d, %Y") + "\n")
+			print ("التوقيت المحلي:", local_date.strftime("%a, %H:%M:%S %b %d, %Y") + "\n")
 			# with code below you can process text of email
 			# if msg.is_multipart():
 			#     for payload in msg.get_payload():
@@ -201,7 +201,7 @@ try:
 	rv, data = M.select("INBOX")
 	if rv == 'OK':
 		unread = re.search(r'UNSEEN\s(\d+)', counts[0].decode('utf-8')).group(1)
-		print ("Unread Count: " + unread)
+		print ("عدد الرسائل:" + unread)
 		process_mailbox(M)
 
 	M.close()
@@ -216,16 +216,16 @@ END
 
 local notify_all_unread_email = function(email_data)
 	
-	local unread_counter = email_data:match('Unread Count: (.-)From:'):sub(1, -2)
+	local unread_counter = email_data:match('عدد الرسائل:(.-)من:'):sub(1, -2)
 
-	local email_data = email_data:match('(From:.*)'):sub(1, -2)
+	local email_data = email_data:match('(من:.*)'):sub(1, -2)
 
 	local title = nil
 
 	if tonumber(unread_email_count) > 1 then
-		title = 'You have ' .. unread_counter .. ' unread emails!'
+		title = 'لديك ' .. unread_counter .. ' رسالة غير مقروءة!'
 	else
-		title = 'You have ' .. unread_counter .. ' unread email!'
+		title = 'لديك ' .. unread_counter .. ' رسالة غير مقروءة!'
 	end
 	
 	naughty.notification ({
@@ -241,12 +241,12 @@ local notify_new_email = function(count, from, subject)
 	if not startup_show and (tonumber(count) > tonumber(unread_email_count)) then
 		unread_email_count = tonumber(count)
 
-		local message = "From: " .. from ..
+		local message = "من: " .. from ..
 		"\nSubject: " .. subject
 		
 		naughty.notification ({
 			app_name = 'Email',
-			title = 'You have a new unread email!',
+			title = 'لديك ايميل جديد!',
 			message = message,
 			timeout = 10,
 			icon = widget_icon_dir .. 'email-unread.svg'
@@ -258,8 +258,8 @@ local notify_new_email = function(count, from, subject)
 end
 
 local set_email_data_tooltip = function(email_data)
-	local email_data = email_data:match('(From:.*)')
-	local counter = "<span font='Inter Regular 10'>Unread Count: </span>" .. unread_email_count
+	local email_data = email_data:match('(من:.*)')
+	local counter = "<span font='JF Flat 10'>عدد الرسائل: </span>" .. unread_email_count
 	email_details_tooltip:set_markup(counter .. '\n\n' .. email_data)
 end
 
@@ -277,27 +277,27 @@ end
 local set_no_connection_msg = function()
 	set_widget_markup(
 		'message@stderr.sh',
-		'Check network connection!',
+		'تاكد من اتصالك بالانترنت!',
 		os.date('%d-%m-%Y %H:%M:%S'),
-		'No internet connection!'		
+		'لا يوجد اتصال بالانترنت!'		
 	)
 end
 
 local set_invalid_credentials_msg = function()
 	set_widget_markup(
 		'message@stderr.sh',
-		'Invalid Credentials!',
+		'خطأ في التوثيق!',
 		os.date('%d-%m-%Y %H:%M:%S'),
-		'You have an invalid credentials!'
+		'بياناتك التوثيق غير صحيحة!'
 	)
 end
 
 local set_latest_email_data = function(email_data)
 
-	local unread_count = email_data:match('Unread Count: (.-)From:'):sub(1, -2)
-	local recent_from = email_data:match('From: (.-)Subject:'):sub(1, -2)
-	local recent_subject = email_data:match('Subject: (.-)Local Date:'):sub(1, -2)
-	local recent_date = email_data:match('Local Date: (.-)\n')
+	local unread_count = email_data:match('عدد الرسائل:(.-)من:'):sub(1, -2)
+	local recent_from = email_data:match('من: (.-)العنوان'):sub(1, -2)
+	local recent_subject = email_data:match('العنوان (.-)التوقيت المحلي:'):sub(1, -2)
+	local recent_date = email_data:match('التوقيت المحلي: (.-)\n')
 
 	recent_from = recent_from:match('<(.*)>') or recent_from:match('&lt;(.*)&gt;') or recent_from
 
@@ -338,11 +338,11 @@ local fetch_email_data = function()
 			elseif stdout:match('Invalid credentials') then
 				set_invalid_credentials_msg()
 				return
-			elseif stdout:match('Unread Count: 0') then
+			elseif stdout:match('عدد الرسائل:0') then
 				email_icon_widget.icon:set_image(widget_icon_dir .. 'email.svg')
 				set_empty_inbox_msg()
 				return
-			elseif not stdout:match('Unread Count: (.-)From:') then
+			elseif not stdout:match('عدد الرسائل:(.-)من:') then
 				return
 			elseif not stdout or stdout == '' then
 				return

@@ -25,15 +25,15 @@ local empty_notifbox = wibox.widget {
 			nil
 		},
 		{
-			text = 'Wow, such empty.',
-			font = 'Inter Bold 14',
+			text = 'واو. لا يوجد شيء.',
+			font = 'JF Flat 14',
 			align = 'center',
 			valign = 'center',
 			widget = wibox.widget.textbox
 		},
 		{
-			text = 'Come back later.',
-			font = 'Inter Regular 10',
+			text = 'اراك لاحقاً صديقي.',
+			font = 'JF Flat 10',
 			align = 'center',
 			valign = 'center',
 			widget = wibox.widget.textbox

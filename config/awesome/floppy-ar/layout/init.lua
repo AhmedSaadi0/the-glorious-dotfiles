@@ -44,8 +44,8 @@ function update_bars_visibility()
 			check_panal(s)
 
 			local fullscreen = s.selected_tag.fullscreen_mode
-			-- Order matter here for shadow
 			s.top_panel.visible = not fullscreen
+			-- Order matter here for shadow
 			if s.left_panel then
 				s.left_panel.visible = true
 			end
