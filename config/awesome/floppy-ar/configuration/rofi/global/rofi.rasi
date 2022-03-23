@@ -24,9 +24,9 @@ window {
     transparency: "real";
     background-color: @transparent;
     text-color: @foreground;
-    location: west;
-    anchor: west;
-    x-offset: 0;
+    location: east;
+    anchor: east;
+    x-offset: -45;
     height: 100%;
     width: 350px;
     orientation: vertical;
