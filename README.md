@@ -25,8 +25,8 @@
 Some of these are outdated, so it is better if you try them yourself. 
 
 <p align='center'>
-	<img alt='ar glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/floppy.webp'/>
-	<img alt='ar glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/floppy.webp'/>
+	<img alt='ar glorious' src='https://github.com/AhmedSaadi0/the-glorious-dotfiles/blob/master/config/awesome/floppy-ar/screeenshots/20220403_172148.png'/>
+	<img alt='ar glorious' src='https://github.com/AhmedSaadi0/the-glorious-dotfiles/blob/master/config/awesome/floppy-ar/screeenshots/Screenshot_20220403_172343.png'/>
 	<br/>
 	<b>
 		AR Floppy
