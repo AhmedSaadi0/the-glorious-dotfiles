@@ -1,14 +1,15 @@
-local awful = require('awful')
-local gears = require('gears')
-local dpi = require('beautiful').xresources.apply_dpi
-require('awful.autofocus')
-local modkey = require('configuration.keys.mod').mod_key
-local altkey = require('configuration.keys.mod').alt_key
+local awful = require("awful")
+local gears = require("gears")
+local dpi = require("beautiful").xresources.apply_dpi
+require("awful.autofocus")
+local modkey = require("configuration.keys.mod").mod_key
+local altkey = require("configuration.keys.mod").alt_key
 
-local client_keys = awful.util.table.join(
+local client_keys =
+	awful.util.table.join(
 	awful.key(
 		{modkey},
-		"f",
+		"m",
 		function(c)
 			c.fullscreen = not c.fullscreen
 			c:raise()
@@ -26,12 +27,7 @@ local client_keys = awful.util.table.join(
 			group = "عميل"
 		}
 	),
-	awful.key(
-		{modkey, "Control"},
-		"space",
-		awful.client.floating.toggle,
-		{description = "التبديل بين ملئ الشاشة", group = "عميل"}
-	),
+	awful.key({modkey}, "f", awful.client.floating.toggle, {description = "جعل النافذه عائمة", group = "عميل"}),
 	awful.key(
 		{modkey, "Control"},
 		"Return",
@@ -51,14 +47,14 @@ local client_keys = awful.util.table.join(
 			group = "عميل"
 		}
 	),
-	awful.key(
-		{modkey},
-		"t",
-		function(c)
-			c.ontop = not c.ontop
-		end,
-		{description = "البقاء فوق البرامج الاخرى", group = "عميل"}
-	),
+	-- awful.key(
+	-- 	{modkey},
+	-- 	"t",
+	-- 	function(c)
+	-- 		c.ontop = not c.ontop
+	-- 	end,
+	-- 	{description = "البقاء فوق البرامج الاخرى", group = "عميل"}
+	-- ),
 	awful.key(
 		{modkey},
 		"n",
@@ -68,34 +64,34 @@ local client_keys = awful.util.table.join(
 			c.minimized = true
 		end,
 		{description = "تصغير الى شريط المهام", group = "عميل"}
-	),
-	awful.key(
-		{modkey},
-		"m",
-		function(c)
-			c.maximized = not c.maximized
-			c:raise()
-		end,
-		{description = "تكبير - تصغير", group = "عميل"}
-	),
-	awful.key(
-		{modkey, "Control"},
-		"m",
-		function(c)
-			c.maximized_vertical = not c.maximized_vertical
-			c:raise()
-		end,
-		{description = "تكبير - تصغير (عموديا)", group = "عميل"}
-	),
-	awful.key(
-		{modkey, "Shift"},
-		"m",
-		function(c)
-			c.maximized_horizontal = not c.maximized_horizontal
-			c:raise()
-		end,
-		{description = "تكبير - تصغير (افقياً)", group = "عميل"}
 	)
+	-- awful.key(
+	-- 	{modkey},
+	-- 	"m",
+	-- 	function(c)
+	-- 		c.maximized = not c.maximized
+	-- 		c:raise()
+	-- 	end,
+	-- 	{description = "تكبير - تصغير", group = "عميل"}
+	-- ),
+	-- awful.key(
+	-- 	{modkey, "Control"},
+	-- 	"m",
+	-- 	function(c)
+	-- 		c.maximized_vertical = not c.maximized_vertical
+	-- 		c:raise()
+	-- 	end,
+	-- 	{description = "تكبير - تصغير (عموديا)", group = "عميل"}
+	-- ),
+	-- awful.key(
+	-- 	{modkey, "Shift"},
+	-- 	"m",
+	-- 	function(c)
+	-- 		c.maximized_horizontal = not c.maximized_horizontal
+	-- 		c:raise()
+	-- 	end,
+	-- 	{description = "تكبير - تصغير (افقياً)", group = "عميل"}
+	-- )
 	-- awful.key(
 	-- 	{modkey},
 	-- 	'f',
@@ -138,9 +134,9 @@ local client_keys = awful.util.table.join(
 	-- 	{description = 'swap with next client by index', group = 'client'}
 	-- ),
 	-- awful.key(
-	-- 	{modkey}, 
-	-- 	'u', 
-	-- 	awful.client.urgent.jumpto, 
+	-- 	{modkey},
+	-- 	'u',
+	-- 	awful.client.urgent.jumpto,
 	-- 	{description = 'jump to urgent client', group = 'client'}
 	-- ),
 	-- awful.key(
@@ -154,17 +150,17 @@ local client_keys = awful.util.table.join(
 	-- 	end,
 	-- 	{description = 'go back', group = 'client'}
 	-- ),
-    -- awful.key(
-    --     {modkey},
-    --     'n',
-    --     function(c)
-    --         c.minimized = true
-    --     end,
-    --     {description = 'minimize client', group = 'client'}
-    -- ),
 	-- awful.key(
-	-- 	{ modkey, 'Shift' }, 
-	-- 	'c', 
+	--     {modkey},
+	--     'n',
+	--     function(c)
+	--         c.minimized = true
+	--     end,
+	--     {description = 'minimize client', group = 'client'}
+	-- ),
+	-- awful.key(
+	-- 	{ modkey, 'Shift' },
+	-- 	'c',
 	-- 	function(c)
 	-- 		local focused = awful.screen.focused()
 
@@ -247,18 +243,18 @@ local client_keys = awful.util.table.join(
 	-- 	{description = 'increase floating client size horizontally by 10 px right', group = 'client'}
 	-- ),
 	-- awful.key(
-	-- 	{modkey, 'Control'},
-	-- 	'Up',
+	-- 	{modkey, "Control"},
+	-- 	"Up",
 	-- 	function(c)
 	-- 		if c.height > 10 then
 	-- 			c:relative_move(0, 0, 0, dpi(-10))
 	-- 		end
 	-- 	end,
-	-- 	{description = 'decrease floating client size vertically by 10 px up', group = 'client'}
+	-- 	{description = "decrease floating client size vertically by 10 px up", group = "client"}
 	-- ),
 	-- awful.key(
-	-- 	{modkey, 'Control'},
-	-- 	'Down',
+	-- 	{modkey, "Control"},
+	-- 	"Down",
 	-- 	function(c)
 	-- 		local c_height = c.height
 	-- 		c:relative_move(0, 0, 0, dpi(-10))
@@ -266,29 +262,29 @@ local client_keys = awful.util.table.join(
 	-- 			c:relative_move(0, dpi(10), 0, 0)
 	-- 		end
 	-- 	end,
-	-- 	{description = 'decrease floating client size vertically by 10 px down', group = 'client'}
+	-- 	{description = "decrease floating client size vertically by 10 px down", group = "client"}
 	-- ),
 	-- awful.key(
-	-- 	{modkey, 'Control'},
-	-- 	'Left',
+	-- 	{modkey, "Control"},
+	-- 	"Left",
 	-- 	function(c)
 	-- 		if c.width > 10 then
 	-- 			c:relative_move(0, 0, dpi(-10), 0)
 	-- 		end
 	-- 	end,
-	-- 	{description = 'decrease floating client size horizontally by 10 px left', group = 'client'}
+	-- 	{description = "decrease floating client size horizontally by 10 px left", group = "client"}
 	-- ),
 	-- awful.key(
-	-- 	{modkey, 'Control'},
-	-- 	'Right',
+	-- 	{modkey, "Control"},
+	-- 	"Right",
 	-- 	function(c)
 	-- 		local c_width = c.width
 	-- 		c:relative_move(0, 0, dpi(-10), 0)
 	-- 		if c.width ~= c_width and c.width > 10 then
-	-- 			c:relative_move(dpi(10), 0 , 0, 0)
+	-- 			c:relative_move(dpi(10), 0, 0, 0)
 	-- 		end
 	-- 	end,
-	-- 	{description = 'decrease floating client size horizontally by 10 px right', group = 'client'}
+	-- 	{description = "decrease floating client size horizontally by 10 px right", group = "client"}
 	-- )
 )
 

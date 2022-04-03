@@ -200,7 +200,7 @@ local placement_placer = function()
 
 	if right_panel and left_panel then
 		if right_panel.visible then
-			awful.placement.bottom_left(
+			awful.placement.bottom_right(
 				brightness_osd,
 				{
 					margins = { 
@@ -218,7 +218,7 @@ local placement_placer = function()
 
 	if right_panel then
 		if right_panel.visible then
-			awful.placement.bottom_left(
+			awful.placement.bottom_right(
 				brightness_osd,
 				{
 					margins = { 
@@ -234,12 +234,12 @@ local placement_placer = function()
 		end
 	end
 
-	awful.placement.bottom_right(
+	awful.placement.bottom_left(
 		brightness_osd,
 		{
 			margins = { 
-				left = 0,
-				right = osd_margin,
+				left = osd_margin,
+				right = 0,
 				top = 0,
 				bottom = osd_margin
 			},

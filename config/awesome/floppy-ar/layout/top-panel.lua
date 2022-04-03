@@ -54,11 +54,13 @@ local top_panel = function(s, offset)
 	local layout_box = require("widget.layoutbox")(s)
 	local add_button = require("widget.open-default-app")(s)
 	s.tray_toggler = require("widget.tray-toggle")
-	s.bluetooth = require("widget.bluetooth")()
-	s.music = require("widget.mpris-widget")()
-	s.network = require("widget.network")()
 	s.info_center_toggle = require("widget.info-center-toggle")()
-	s.cpu = require("widget.cpu")()
+	s.cpu = require("widget.cpu")({
+		width = 70,
+		step_width = 2,
+		step_spacing = 0,
+		color = '#434c5e'
+	})
 	s.ns = require("widget.net-speed-widget")()
 	s.ram = require("widget.ram-widget")()
 	s.mpd = require("widget.mpd")()
@@ -72,8 +74,6 @@ local top_panel = function(s, offset)
 		{
 			s.info_center_toggle,
 			layout_box,
-
-			spacing = dpi(5),
 			
 			{
 				s.systray,
@@ -82,22 +82,26 @@ local top_panel = function(s, offset)
 			},
 			
 			layout = wibox.layout.fixed.horizontal,
-			s.ns,
+			s.bat,
 			s.ram,
 			s.cpu,
-			s.bat,
-			s.temp,
-			-- s.volume_bar,
+			s.ns,
+			
+			-- s.brightness_cr,
+			-- s.volume_cr,
 			
 		},
 		clock,
+
 		{
 			layout = wibox.layout.fixed.horizontal,
 			task_list(s),
 			add_button
 		},
+
 		expand = "none",
 		layout = wibox.layout.align.horizontal
+
 	}
 
 	return panel

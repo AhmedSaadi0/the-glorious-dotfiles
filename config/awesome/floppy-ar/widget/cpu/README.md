@@ -52,7 +52,7 @@ The config above results in the following widget:
 Clone/download repo and use widget in **rc.lua**:
 
 ```lua
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local cpu_widget = requirxe("awesome-wm-widgets.cpu-widget.cpu-widget")
 ...
 s.mytasklist, -- Middle widget
 	{ -- Right widgets

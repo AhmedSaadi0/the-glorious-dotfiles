@@ -18,7 +18,7 @@ theme.font = 'JF Flat 10'
 theme.font_bold = 'JF Flat 10'
 
 -- Menu icon theme
-theme.icon_theme = 'Sweet-Rainbow'
+-- theme.icon_theme = 'Sweet-Rainbow'
 
 local awesome_overrides = function(theme)
 

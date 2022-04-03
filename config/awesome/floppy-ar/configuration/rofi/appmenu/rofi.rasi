@@ -10,7 +10,7 @@
 configuration {
 	font:							"JF Flat 11";
     show-icons:                     true;
-	icon-theme: 					"Papirus";
+	icon-theme: 					"Cobalt Dark";
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                false;

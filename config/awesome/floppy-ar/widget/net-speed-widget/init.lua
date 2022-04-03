@@ -11,10 +11,6 @@
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
 
-local HOME_DIR = os.getenv("HOME")
-local WIDGET_DIR = HOME_DIR .. '/.config/awesome/awesome-wm-widgets/net-speed-widget/'
-local ICONS_DIR = WIDGET_DIR .. 'icons/'
-
 local net_speed_widget = wibox.widget {
     {
         id = 'rx_speed',
@@ -23,11 +19,11 @@ local net_speed_widget = wibox.widget {
         widget = wibox.widget.textbox
     },
     {
-        image = ICONS_DIR .. 'down.svg',
+        image = '/home/ahmed/.config/awesome/widget/net-speed-widget/icons/down.svg',
         widget = wibox.widget.imagebox
     },
     {
-        image =  ICONS_DIR .. 'up.svg',
+        image =  '/home/ahmed/.config/awesome/widget/net-speed-widget/icons/up.svg',
         widget = wibox.widget.imagebox
     },
     {

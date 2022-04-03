@@ -72,6 +72,14 @@ local global_keys = awful.util.table.join(
 	),
 	awful.key(
 		{modkey},
+		'x',
+		function()
+			awesome.spawn('xcolor -s')
+		end,
+		{description = 'اخذ لون من الشاشة', group = 'ادوات'}
+	),
+	awful.key(
+		{modkey},
 		'l',
 		function()
 			awful.spawn(apps.default.lock, false)
@@ -267,7 +275,7 @@ local global_keys = awful.util.table.join(
 		}
 	),
 	awful.key(
-		{modkey, alt_key},
+		{modkey, altkey},
 		"Right",
 		function()
 			awful.tag.incmwfact(0.05)
@@ -275,45 +283,45 @@ local global_keys = awful.util.table.join(
 		{description = "زيادة عامل العرض الرئيسي", group = "التخطيط"}
 	),
 	awful.key(
-		{modkey, alt_key},
+		{modkey, altkey},
 		"Left",
 		function()
 			awful.tag.incmwfact(-0.05)
 		end,
 		{description = "تقليل عامل العرض الرئيسي", group = "التخطيط"}
 	),
-	awful.key(
-		{modkey, control_key},
-		"Left",
-		function()
-			awful.tag.incnmaster(1, nil, true)
-		end,
-		{description = "زيادة عدد الصفوف في اليسار", group = "التخطيط"}
-	),
-	awful.key(
-		{modkey, control_key},
-		"Right",
-		function()
-			awful.tag.incnmaster(-1, nil, true)
-		end,
-		{description = "زيادة عدد الصفوف في اليمين", group = "التخطيط"}
-	),
-	awful.key(
-		{modkey, control_key},
-		"Up",
-		function()
-			awful.tag.incncol(1, nil, true)
-		end,
-		{description = "زيادة عدد الاعمدة", group = "التخطيط"}
-	),
-	awful.key(
-		{modkey, control_key},
-		"Down",
-		function()
-			awful.tag.incncol(-1, nil, true)
-		end,
-		{description = "تقليل عدد الاعمدة", group = "التخطيط"}
-	), 
+	-- awful.key(
+	-- 	{modkey, altkey},
+	-- 	"Left",
+	-- 	function()
+	-- 		awful.tag.incnmaster(1, nil, true)
+	-- 	end,
+	-- 	{description = "زيادة عدد الصفوف في اليسار", group = "التخطيط"}
+	-- ),
+	-- awful.key(
+	-- 	{modkey, altkey},
+	-- 	"Right",
+	-- 	function()
+	-- 		awful.tag.incnmaster(-1, nil, true)
+	-- 	end,
+	-- 	{description = "زيادة عدد الصفوف في اليمين", group = "التخطيط"}
+	-- ),
+	-- awful.key(
+	-- 	{modkey, altkey},
+	-- 	"Up",
+	-- 	function()
+	-- 		awful.tag.incncol(1, nil, true)
+	-- 	end,
+	-- 	{description = "زيادة عدد الاعمدة", group = "التخطيط"}
+	-- ),
+	-- awful.key(
+	-- 	{modkey, altkey},
+	-- 	"Down",
+	-- 	function()
+	-- 		awful.tag.incncol(-1, nil, true)
+	-- 	end,
+	-- 	{description = "تقليل عدد الاعمدة", group = "التخطيط"}
+	-- ), 
 	-- awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
 	--           {description = "select next", group = "التخطيط"}),
 	-- awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
@@ -448,7 +456,7 @@ local global_keys = awful.util.table.join(
 		{modkey, "Shift"},
 		"p",
 		function()
-			awful.spawn("charm")
+			awful.spawn("prime-run pycharm")
 		end,
 		{description = "افتح PyCahrm", group = "تطبيقات"}
 	),

@@ -23,7 +23,7 @@ local create_widget = function()
 	local trash_menu = awful.menu({
 		items = {
 			{
-				'Open trash',
+				'افتح سلة المهملات',
 				function()
 					awful.spawn.easy_async_with_shell(
 						'gio open trash:///', 
@@ -34,10 +34,10 @@ local create_widget = function()
 				widget_icon_dir .. 'open-folder.svg'
 			},
 			{
-				'Delete forever', 
+				'حذف نهائي', 
 				{
 					{
-						'Yes',
+						'نعم',
 						function()
 							awful.spawn.easy_async_with_shell(
 								'gio trash --empty',
@@ -49,7 +49,7 @@ local create_widget = function()
 						widget_icon_dir .. 'yes.svg'
 					},
 					{
-						'No',
+						'لا',
 						'',
 						widget_icon_dir .. 'no.svg'
 					}
@@ -73,7 +73,7 @@ local create_widget = function()
 		objects = {trash_button},
 		mode = 'outside',
 		align = 'right',
-		markup = 'Trash',
+		markup = 'سلة المهملات',
 		margin_leftright = dpi(8),
 		margin_topbottom = dpi(8),
 		preferred_positions = {'top', 'bottom', 'right', 'left'}
@@ -113,12 +113,12 @@ local create_widget = function()
 					awful.spawn.easy_async_with_shell(
 						'gio list trash:///',
 						function(stdout)
-							trash_tooltip.markup = '<b>Trash contains:</b>\n' .. stdout:gsub('\n$', '')
+							trash_tooltip.markup = '<b>سلة المهملات تحتوي على:</b>\n' .. stdout:gsub('\n$', '')
 						end
 					)
 				else
 					trash_widget.trash_icon:set_image(widget_icon_dir .. 'user-trash-empty.svg')
-					trash_tooltip.markup = 'Trash empty'
+					trash_tooltip.markup = 'فارغة'
 				end
 			end
 		)

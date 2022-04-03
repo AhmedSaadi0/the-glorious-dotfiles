@@ -18,7 +18,7 @@ local msg_table = {
 	'ياميتي, اونييي تشاان~. UwU',
 	'طيب ... باي باي!',
 	'سلام!',
-	'سلام, bitch!',
+	'سلام, بياتش!',
 	'علي الذهاب.',
 	'الباب يفوت جمل',
 	'لا تنسى ان تعود!',
@@ -38,18 +38,19 @@ local msg_table = {
 	-- 'Bye Felicia!',
 	'سايونارا!',
 	'شياو!',
-	'زاي جيان.',
+	-- 'زاي جيان.',
 	'لا تنسى ما تحذف سجل التصفح!',
 	-- 'See you, Space Cowboy!',
 	'غير العالم صديقي. الى اللقاء.',
-	'هنتر رجع ولا لا؟',
+	-- 'هنتر رجع ولا لا؟',
 	'اختر بعناية!'
 }
 
 local greeter_message = wibox.widget {
 	markup = 'Choose wisely!',
-	font = 'JF Flat 48',
+	font = 'JF Flat 45',
 	align = 'center',
+	margins = dpi(10),
 	valign = 'center',
 	widget = wibox.widget.textbox
 }
@@ -266,7 +267,7 @@ local create_exit_screen = function(s)
 				nil,
 				{
 					widget = wibox.container.margin,
-					margins = dpi(15),
+					margins = dpi(30),
 					greeter_message
 				},
 				nil

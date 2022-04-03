@@ -34,7 +34,7 @@ local create_widget = function()
 				1,
 				nil,
 				function()
-					awful.spawn.with_shell('xdg-open $(xdg-user-dir VIDEOS)')
+					awful.spawn.with_shell('xdg-open /media/shared/Videos/')
 				end
 			)
 		)
@@ -48,7 +48,7 @@ local create_widget = function()
 		margin_leftright = dpi(8),
 		margin_topbottom = dpi(8),
 		timer_function = function()
-			return 'Videos'
+			return 'الفيديوهات'
 		end,
 		preferred_positions = {'top', 'bottom', 'right', 'left'}
 	}

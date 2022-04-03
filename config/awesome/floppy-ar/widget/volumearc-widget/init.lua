@@ -19,7 +19,7 @@ local INC_VOLUME_CMD = 'amixer -q -D pulse sset Master 5%+'
 local DEC_VOLUME_CMD = 'amixer -q -D pulse sset Master 5%-'
 local TOG_VOLUME_CMD = 'amixer -q -D pulse sset Master toggle'
 
-local PATH_TO_ICON = "/usr/share/icons/Arc/status/symbolic/audio-volume-muted-symbolic.svg"
+local PATH_TO_ICON = "/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-muted-symbolic.svg"
 
 local widget = {}
 

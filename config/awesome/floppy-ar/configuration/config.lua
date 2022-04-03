@@ -6,7 +6,7 @@ return {
 			-- App password
 			app_password = '',
 			-- Imap server
-			imap_server = 'imap.gmail.com',
+			imap_server = '',
 			-- Port
 			port = '993'
 		},
@@ -29,7 +29,7 @@ return {
 
 		clock = {
 			-- Clock widget format
-			military_mode = false
+			military_mode = true
 		},
 
 		screen_recorder = {
