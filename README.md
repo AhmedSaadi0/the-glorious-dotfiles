@@ -31,9 +31,6 @@ Some of these are outdated, so it is better if you try them yourself.
 	<b>
 		AR Floppy
 	</b>
-	<br>
-	Floppy was meant to be a clone of the infamous <a href='https://www.reddit.com/r/unixporn/comments/apktsx/flurry_i_know_you_like_tiling_managers_and_i_want/'>Flurry Desktop</a>. I named it Floppy because I thought it would flop when I first <a href='https://www.reddit.com/r/unixporn/comments/de0m3v/awesome_floppy/'>posted it on r/unixporn</a>. This is my favorite.
-	<br>
 </p>
 
 
